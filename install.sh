@@ -41,10 +41,11 @@ chmod +x "$INSTALL_DIR/main.js"
 mkdir -p "$LOCAL_BIN"
 ln -sf "$INSTALL_DIR/main.js" "$BIN_LINK"
 
+SHELL_NAME=$(basename "$SHELL")
 PROFILE_FILE=""
-if [ "$SHELL_NAME" = "bash" ]; then
+if [[ "$SHELL_NAME" == "bash" ]]; then
     PROFILE_FILE="$HOME/.bashrc"
-elif [ "$SHELL_NAME" = "zsh" ]; then
+elif [[ "$SHELL_NAME" == "zsh" ]]; then
     PROFILE_FILE="$HOME/.zshrc"
 else
     PROFILE_FILE="$HOME/.profile"
